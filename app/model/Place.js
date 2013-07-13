@@ -3,7 +3,8 @@ Ext.define('DonationHelper.model.Place', {
 	config: {
 		fields: [
 			'name',
-			'location',
+			'lat',
+			'long',
 			'mission',
 			'needed'
 		]

@@ -18,9 +18,7 @@ Ext.define("DonationHelper.view.Home", {
       },
 
 	onCategoryTap: function(view, index, target, record, event){
-		console.log(event);
-		console.log(target);
-		console.log(record);
+		this.fireEvent('findDonationCenters', this, record);
 	},
 
 	config: {

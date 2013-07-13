@@ -14,7 +14,8 @@ Ext.application({
 	
 	models: ['Place'],
     views: ['Start', 'CommitmentList', 'Commitments'],
-	stores: ['CommitmentStore', 'CatStore'],
+	controllers: ['CategoryController'],
+	stores: ['CommitmentStore', 'CatStore', 'PlaceStore'],
 
     icon: {
         '57': 'resources/icons/Icon.png',
@@ -42,9 +43,21 @@ Ext.application({
 		var clothingCategory = new DonationHelper.model.CatItem({name:'Clothes'});
 		var sportCategory = new DonationHelper.model.CatItem({name:'Sport'});
 		var furnitureCategory = new DonationHelper.model.CatItem({name: 'Furniture'});
+		
 		Ext.getStore('CatStore').add(clothingCategory);
 		Ext.getStore('CatStore').add(sportCategory);
 		Ext.getStore('CatStore').add(furnitureCategory);
+		
+		// This is dumb for demo purposes -- NOT ENOUGH TIME :(
+		var arkThrift = new DonationHelper.model.CatItem({
+											name:'Ark Thrift Shop',
+											lat: 41.907787,
+											long: -87.676585,
+											mission: "Refugees of Eastern Europe",
+											needed: "all"
+		});
+		
+		Ext.getStore('PlaceStore').add(arkThrift);
 
         // Initialize the main view
         Ext.Viewport.add(Ext.create('DonationHelper.view.Start'));
