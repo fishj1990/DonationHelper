@@ -42,13 +42,19 @@ Ext.application({
         Ext.fly('appLoadingIndicator').destroy();
 
 		var catStore = Ext.create("DonationHelper.store.CatStore");
+		
+		
 		var clothingCategory = new DonationHelper.model.CatItem({name:'Clothes'});
-		var sportCategory = new DonationHelper.model.CatItem({name:'Sport'});
+		var electronicsCategory = new DonationHelper.model.CatItem({name:'Electronics'});
 		var furnitureCategory = new DonationHelper.model.CatItem({name: 'Furniture'});
+		var houseHoldCategory = new DonationHelper.model.CatItem({name: 'Household,Toys,Books'});
+		var OthersCategory = new DonationHelper.model.CatItem({name: 'Others'});
 		
 		Ext.getStore('CatStore').add(clothingCategory);
-		Ext.getStore('CatStore').add(sportCategory);
+		Ext.getStore('CatStore').add(electronicsCategory);
 		Ext.getStore('CatStore').add(furnitureCategory);
+		Ext.getStore('CatStore').add(houseHoldCategory);
+		Ext.getStore('CatStore').add(OthersCategory);
 		
 		catController = this.getController('CategoryController');
 		
