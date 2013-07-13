@@ -292,10 +292,21 @@ Ext.define("DonationHelper.controller.CategoryController", {
 				mapTypeId: google.maps.MapTypeId.ROADMAP,
 				zoom: 17
 			},
+			listeners: {
+				maprender: function(comp, map){
+					
+					var marker = new google.maps.Marker({
+						position: comp._map.center,
+						title: "Here!",
+						visible: true,
+						map: comp._map
+					});
+				}
+			}
 		})
 		
 		var ourMap = (Ext.getCmp("ourMap"));
-		console.log(ourMap); 
+
 	
 		var marker = new google.maps.Marker({
 			position: new google.maps.LatLng(place.lat,place.long),
