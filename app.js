@@ -1,17 +1,21 @@
 //<debug>
 Ext.Loader.setPath({
     'Ext': 'touch/src',
-    'DonationHelper': 'app'
+    'DonationHelper': 'app',
+	'Ext.plugin': 'lib/plugin'
 });
 //</debug>
 
 var catController = null;
+var mapVar = null;
 
 Ext.application({
     name: 'DonationHelper',
 
     requires: [
-        'Ext.MessageBox'
+        'Ext.MessageBox',
+		'Ext.plugin.google.Traffic',
+		'Ext.plugin.google.Tracker'
     ],
 	
 	models: ['Place'],
@@ -41,7 +45,6 @@ Ext.application({
     launch: function() {
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
-	
 
 		var catStore = Ext.create("DonationHelper.store.CatStore");
 		
@@ -59,6 +62,8 @@ Ext.application({
 		Ext.getStore('CatStore').add(OthersCategory);
 		
 		catController = this.getController('CategoryController');
+	
+		console.log(this);
 		
 		// This is dumb for demo purposes -- NOT ENOUGH TIME :(
 /*		var arkThrift = new DonationHelper.model.CatItem({
@@ -256,6 +261,6 @@ Ext.application({
                 }
             }
         );
-    }
+    },
 });
 

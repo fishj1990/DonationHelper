@@ -35,7 +35,7 @@ Ext.define('DonationHelper.view.Start', {
 						}
 					]
 				},
-				{
+			/*	{
 					title: 'Commitments',
 					layout: 'fit',
 					items: [
@@ -43,7 +43,7 @@ Ext.define('DonationHelper.view.Start', {
 							xtype: 'commitments'
 						}
 					]
-				}
+				} */
 			]
 		};
 		this.add([tabBar]);
