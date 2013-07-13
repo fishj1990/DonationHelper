@@ -280,9 +280,6 @@ Ext.define("DonationHelper.controller.CategoryController", {
 	error: function(msg){
 		
 	},
-	onMapRender: function(map, gmap, eOpt){
-		console.log('SDFSDF');
-	},
 	
 	onItemTap: function(view,index,target,record,event) {
 		var place = record.raw;
@@ -291,19 +288,20 @@ Ext.define("DonationHelper.controller.CategoryController", {
 			xtype: 'map',
 			id: 'ourMap',
 			mapOptions: {
-				center: google.maps.LatLng(place.lat,place.long),
+				center: new google.maps.LatLng(place.lat,place.long),
 				mapTypeId: google.maps.MapTypeId.ROADMAP,
 				zoom: 17
 			},
 		})
 		
-		var ourMap = (Ext.getCmp("ourMap")); 
+		var ourMap = (Ext.getCmp("ourMap"));
+		console.log(ourMap); 
 	
 		var marker = new google.maps.Marker({
 			position: new google.maps.LatLng(place.lat,place.long),
-			map: ourMap
 		});
-		map.itemAdd(marker);
+		marker.setMap(ourMap);
+	
 	
 	//	console.log("HI!");
 	},
