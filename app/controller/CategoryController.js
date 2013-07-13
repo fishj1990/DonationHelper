@@ -287,6 +287,7 @@ Ext.define("DonationHelper.controller.CategoryController", {
 		catController.getHome().push({
 			xtype: 'map',
 			id: 'ourMap',
+			title: "Not too far...",
 			mapOptions: {
 				center: new google.maps.LatLng(place.lat,place.long),
 				mapTypeId: google.maps.MapTypeId.ROADMAP,

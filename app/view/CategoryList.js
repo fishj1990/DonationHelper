@@ -4,7 +4,7 @@ Ext.define("DonationHelper.view.CategoryList", {
 	requires: ["DonationHelper.store.CatStore"],
 	
 	config: {
-		title: 'Categories',
+		title: 'I have...',
 		loadingText: "Loading categories... ",
 		store: 'CatStore',
 		onItemDisclosure: true,

@@ -4,7 +4,7 @@ Ext.define('DonationHelper.view.ResultList', {
 	requires: ['DonationHelper.store.ResultStore'],
 	config: {
 		store: 'ResultStore',
-		title: 'Results',
+		title: 'Places near you',
 		emptyText: "Nothing found.. oops.",
 		itemTpl:
 		'<div class="myContent">'+
