@@ -5,6 +5,8 @@ Ext.Loader.setPath({
 });
 //</debug>
 
+var catController = null;
+
 Ext.application({
     name: 'DonationHelper',
 
@@ -47,6 +49,8 @@ Ext.application({
 		Ext.getStore('CatStore').add(clothingCategory);
 		Ext.getStore('CatStore').add(sportCategory);
 		Ext.getStore('CatStore').add(furnitureCategory);
+		
+		catController = this.getController('CategoryController');
 		
 		// This is dumb for demo purposes -- NOT ENOUGH TIME :(
 		var arkThrift = new DonationHelper.model.CatItem({
