@@ -11,8 +11,10 @@ Ext.application({
     requires: [
         'Ext.MessageBox'
     ],
-
-    views: ['Main'],
+	
+	models: ['Place'],
+    views: ['Start', 'CommitmentList', 'Commitments'],
+	stores: ['CommitmentStore', 'CatStore'],
 
     icon: {
         '57': 'resources/icons/Icon.png',
@@ -36,8 +38,14 @@ Ext.application({
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 
+		var catStore = Ext.create("DonationHelper.store.CatStore");
+		var clothingCategory = new DonationHelper.model.CatItem({name:'Clothes'});
+		var sportCategory = new DonationHelper.model.CatItem({name:'Sport'});
+		Ext.getStore('CatStore').add(clothingCategory);
+		Ext.getStore('CatStore').add(sportCategory);
+
         // Initialize the main view
-        Ext.Viewport.add(Ext.create('DonationHelper.view.Main'));
+        Ext.Viewport.add(Ext.create('DonationHelper.view.Start'));
     },
 
     onUpdated: function() {
