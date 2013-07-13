@@ -9,8 +9,8 @@ Ext.define("DonationHelper.controller.CategoryController", {
 			home: {
 				findDonationCenters: "findDonationCenters"
 			},
-			test: {
-				scope: this
+			resultlist: {
+				itemtap: 'onItemTap'
 			}
 		}
 	},
@@ -36,7 +36,7 @@ Ext.define("DonationHelper.controller.CategoryController", {
 		for (var i=0; i < placeStore.getCount(); i++){
 			var place = placeStore.getAt(i).raw;
 			
-			if(place.needed == "clothes" || place.needed === 'all'){
+			if(place.needed == "Clothing" || place.needed === 'All'){
 				var placeLat = place.lat;
 				var placeLong = place.long;
 			
@@ -86,7 +86,7 @@ Ext.define("DonationHelper.controller.CategoryController", {
 			for (var i=0; i < placeStore.getCount(); i++){
 				var place = placeStore.getAt(i).raw;
 
-				if(place.needed == "electronics" || place.needed === 'all'){
+				if(place.needed == "Electronics" || place.needed === 'All'){
 					var placeLat = place.lat;
 					var placeLong = place.long;
 
@@ -136,7 +136,7 @@ Ext.define("DonationHelper.controller.CategoryController", {
 			for (var i=0; i < placeStore.getCount(); i++){
 				var place = placeStore.getAt(i).raw;
 
-				if(place.needed == "furniture" || place.needed === 'all'){
+				if(place.needed == "Furniture" || place.needed === 'All'){
 					var placeLat = place.lat;
 					var placeLong = place.long;
 
@@ -186,7 +186,7 @@ Ext.define("DonationHelper.controller.CategoryController", {
 			for (var i=0; i < placeStore.getCount(); i++){
 				var place = placeStore.getAt(i).raw;
 
-				if(place.needed === 'all'){
+				if(place.needed === 'All'){
 					var placeLat = place.lat;
 					var placeLong = place.long;
 
@@ -236,7 +236,7 @@ Ext.define("DonationHelper.controller.CategoryController", {
 			for (var i=0; i < placeStore.getCount(); i++){
 				var place = placeStore.getAt(i).raw;
 
-				if(place.needed === 'others'){
+				if(place.needed === 'Others'){
 					var placeLat = place.lat;
 					var placeLong = place.long;
 
@@ -279,6 +279,11 @@ Ext.define("DonationHelper.controller.CategoryController", {
 	
 	error: function(msg){
 		
+	},
+	
+	onItemTap: function(view,index,target,record,event) {
+		
+		console.log("HI!");
 	},
 	
 	
