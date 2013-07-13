@@ -41,8 +41,10 @@ Ext.application({
 		var catStore = Ext.create("DonationHelper.store.CatStore");
 		var clothingCategory = new DonationHelper.model.CatItem({name:'Clothes'});
 		var sportCategory = new DonationHelper.model.CatItem({name:'Sport'});
+		var furnitureCategory = new DonationHelper.model.CatItem({name: 'Furniture'});
 		Ext.getStore('CatStore').add(clothingCategory);
 		Ext.getStore('CatStore').add(sportCategory);
+		Ext.getStore('CatStore').add(furnitureCategory);
 
         // Initialize the main view
         Ext.Viewport.add(Ext.create('DonationHelper.view.Start'));

@@ -8,7 +8,7 @@ Ext.define("DonationHelper.view.Home", {
                     xtype: "catlist",
                     listeners: {
                         itemtap: {
-                                fn: this.onMenuListDisclose,
+                                fn: this.onCategoryTap,
                                 scope: this
                         }
                     }
@@ -17,8 +17,13 @@ Ext.define("DonationHelper.view.Home", {
             this.add([menuList]);
       },
 
+	onCategoryTap: function(view, index, target, record, event){
+		console.log(event);
+		console.log(target);
+		console.log(record);
+	},
+
 	config: {
 			title: "ReMuse",
-			
 	}
 });
