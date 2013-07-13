@@ -15,9 +15,9 @@ Ext.application({
     ],
 	
 	models: ['Place'],
-    views: ['Start', 'CommitmentList', 'Commitments'],
+    views: ['Start', 'CommitmentList', 'Commitments', 'Results', 'ResultList'],
 	controllers: ['CategoryController'],
-	stores: ['CommitmentStore', 'CatStore', 'PlaceStore'],
+	stores: ['CommitmentStore', 'CatStore', 'PlaceStore', 'ResultStore'],
 
     icon: {
         '57': 'resources/icons/Icon.png',
@@ -58,7 +58,9 @@ Ext.application({
 											lat: 41.907787,
 											long: -87.676585,
 											mission: "Refugees of Eastern Europe",
-											needed: "all"
+											needed: "all",
+											address: "1302 N Milwaukee Ave",
+											phone: "(773) 862-5011"
 		});
 		
 		Ext.getStore('PlaceStore').add(arkThrift);

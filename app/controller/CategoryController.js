@@ -35,28 +35,144 @@ Ext.define("DonationHelper.controller.CategoryController", {
 	
 		for (var i=0; i < placeStore.getCount(); i++){
 			var place = placeStore.getAt(i).raw;
-			var placeLat = place.lat;
-			var placeLong = place.long;
 			
-			var distance = catController.findDistance(lat,long,placeLat,placeLong);
-			place.distance = distance;
-			console.log(place.distance);
-			placesByDistance.push(place);
+			if(place.needed == "clothes" || place.needed === 'all'){
+				var placeLat = place.lat;
+				var placeLong = place.long;
+			
+				var distance = catController.findDistance(lat,long,placeLat,placeLong);
+				place.distance = distance;
+				console.log(place.distance);
+				placesByDistance.push(place);
+			}
 		}
 		
 		// sort array to locate closest centers
 		placesByDistance.sort(catController.sorter);
+		var max = 5;
 		
+		var resultStore = Ext.getStore("ResultStore");
+		resultStore.removeAll();
+	
+		for( var i = 0; i < placesByDistance.length; i++){
+			if(i === max) break;
+	
+			var place = new DonationHelper.model.Place({
+				name: placesByDistance[i].name,
+				lat: placesByDistance[i].lat,
+				long: placesByDistance[i].long,
+				mission: placesByDistance[i].mission,
+				needed: placesByDistance[i].needed,
+				address: placesByDistance[i].address,
+				phone: placesByDistance[i].phone
+			});
+	
+			resultStore.add(place);
+		}
 		
-		
+		catController.getHome().push({
+			xtype:'resultlist'
+		});
 	},
 	
-	findSportCenters: function(position){
-		
+	findElectronicCenters: function(position){
+			var lat = position.coords.latitude;
+			var long = position.coords.longitude;
+
+			var placesByDistance = [];
+
+			var placeStore = Ext.getStore('PlaceStore');
+
+			for (var i=0; i < placeStore.getCount(); i++){
+				var place = placeStore.getAt(i).raw;
+
+				if(place.needed == "electronics" || place.needed === 'all'){
+					var placeLat = place.lat;
+					var placeLong = place.long;
+
+					var distance = catController.findDistance(lat,long,placeLat,placeLong);
+					place.distance = distance;
+					console.log(place.distance);
+					placesByDistance.push(place);
+				}
+			}
+
+			// sort array to locate closest centers
+			placesByDistance.sort(catController.sorter);
+			var max = 5;
+
+			var resultStore = Ext.getStore("ResultStore");
+			resultStore.removeAll();
+
+			for( var i = 0; i < placesByDistance.length; i++){
+				if(i === max) break;
+
+				var place = new DonationHelper.model.Place({
+					name: placesByDistance[i].name,
+					lat: placesByDistance[i].lat,
+					long: placesByDistance[i].long,
+					mission: placesByDistance[i].mission,
+					needed: placesByDistance[i].needed,
+					address: placesByDistance[i].address,
+					phone: placesByDistance[i].phone
+				});
+
+				resultStore.add(place);
+			}
+
+			catController.getHome().push({
+				xtype:'resultlist'
+			});
 	},
 	
 	findFurnitureCenters: function(position){
-		
+			var lat = position.coords.latitude;
+			var long = position.coords.longitude;
+
+			var placesByDistance = [];
+
+			var placeStore = Ext.getStore('PlaceStore');
+
+			for (var i=0; i < placeStore.getCount(); i++){
+				var place = placeStore.getAt(i).raw;
+
+				if(place.needed == "furniture" || place.needed === 'all'){
+					var placeLat = place.lat;
+					var placeLong = place.long;
+
+					var distance = catController.findDistance(lat,long,placeLat,placeLong);
+					place.distance = distance;
+					console.log(place.distance);
+					placesByDistance.push(place);
+				}
+			}
+
+			// sort array to locate closest centers
+			placesByDistance.sort(catController.sorter);
+			var max = 5;
+
+			var resultStore = Ext.getStore("ResultStore");
+			resultStore.removeAll();
+
+			for( var i = 0; i < placesByDistance.length; i++){
+				if(i === max) break;
+
+				var place = new DonationHelper.model.Place({
+					name: placesByDistance[i].name,
+					lat: placesByDistance[i].lat,
+					long: placesByDistance[i].long,
+					mission: placesByDistance[i].mission,
+					needed: placesByDistance[i].needed,
+					address: placesByDistance[i].address,
+					phone: placesByDistance[i].phone
+				});
+
+				resultStore.add(place);
+			}
+
+			catController.getHome().push({
+				xtype:'resultlist'
+			});
 	},
 	
 	findHouseHoldCenters: function(position){

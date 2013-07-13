@@ -6,7 +6,9 @@ Ext.define('DonationHelper.model.Place', {
 			'lat',
 			'long',
 			'mission',
-			'needed'
+			'needed',
+			'address',
+			'phone'
 		]
 	}
 });
